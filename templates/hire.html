@@ -1,0 +1,130 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Hire
+{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block main %}
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display: none;"  onload="this.onload=function(){window.location='{{ url_for('thanks') }}'}"></iframe>
+<form id="register_form" method="post" target="hidden_iframe" action="http://docs.google.com/forms/d/e/1FAIpQLScXjjITKIa541XjVjV9nuRFBeAFbU-9vpGQvhQIemqO0iVosw/formResponse">
+
+    <div class="form-group">
+        <div class="form-row " >
+            <div class="col-sm-2">
+                <label for="name"><b>Name</b></label>
+                <input name="entry.879267060" type="text" class="form-control" id="name" placeholder="Name" data-error="Please fill the name." required>
+
+            </div>
+
+            <div class="col-auto">
+                <label for="b_year"><b>Birthday</b></label>
+                <div class="input-group">
+                    <input name="entry.619496990_year" type="number" class="form-control" min="1900" max="2100" placeholder="Year" id="b_year" required>
+
+                    <input name="entry.619496990_month" type="number" class="form-control" min="1" max="12" placeholder="Mon" required>
+
+                    <input name="entry.619496990_day" type="number" class="form-control" min="1" max="31" placeholder="Day" required>
+
+                </div>
+
+            </div>
+
+            <div class="col-auto">
+                <label for="gender"><b>Gender</b></label>
+                <select name="entry.1139703266" class="form-control" id="gender" required>
+                    <option value="man" selected>Man</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-3">
+                <label for="school"><b>Graduated from</b></label>
+                <input name="entry.229459079" type="text" class="form-control" id="school" placeholder="school Name" required>
+
+            </div>
+            <div class="col-sm-3">
+                <label for="major"><b>Major</b></label>
+                <input name="entry.563928655" type="text" class="form-control" id="major" placeholder="Major" required>
+
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-3">
+                <label for="email"><b>Email</b></label>
+                <input name="entry.1776156671" type="email" class="form-control" id="email" placeholder="name@example.com" required>
+            </div>
+            <div class="col-sm-3">
+                <label for="phone"><b>Phone</b></label>
+                <input name="entry.1134187746" type="text" class="form-control" id="phone" placeholder="0900 123 456" required>
+            </div>
+        </div>
+    </div>
+
+    <fieldset class="form-group">
+        <div class="form-row">
+            <div class="col-auto">
+                <label for="radio"><b>Application for</b></label>
+                <div class="form-check" required>
+                    <label class="form-check-label">
+                        <input name="entry.1377056158" class="form-check-input" type="radio" id="partime" value="partime" checked >
+                        Part time
+                    </label>
+                    <label class="form-check-label">
+                        <input name="entry.1377056158" class="form-check-input-sm-2" type="radio" id="fulltime" value="fulltime">
+                        Full time
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <div class="form-row">
+            <div class="col-auto">
+                <label for="radio"><b>Position for</b></label>
+                <div class="form-check" required>
+                    <label class="form-check-label">
+                        <input name="entry.749783056" class="form-check-input" type="radio" id="english" value="english" checked>
+                        English Teacher
+                    </label>
+                    <label class="form-check-label">
+                        <input name="entry.749783056" class="form-check-input-sm-2" type="radio" id="math" value="math">
+                        Math Teacher
+                    </label>
+                    <label class="form-check-label">
+                        <input name="entry.749783056" class="form-check-input-sm-2" type="radio" id="science" value="science">
+                        Science Teacher
+                    </label>
+                    <label class="form-check-label">
+                        <input name="entry.749783056" class="form-check-input-sm-2" type="radio" id="others" value="others">
+                        Others
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-6">
+                <label for="comment"><b>Leave Comment</b></label>
+                <textarea name="entry.2098734073" class="form-control" id="comment" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-dark" >Submit</button>
+</form>
+
+
+{%endblock%}

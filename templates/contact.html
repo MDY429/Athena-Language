@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Contact
+{% endblock %}
+
+{% block head %}
+    <!-- https://developers.google.com/maps/documentation/javascript/ -->
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ key | urlencode }}&v=3.exp"></script>
+    <!-- app's own JavaScript -->
+    <script src="{{ url_for('static', filename='contact.js') }}"></script>
+
+{% endblock %}
+
+{% block main %}
+    <h4>Where are we:</h4>
+    <!-- https://developers.google.com/maps/documentation/javascript/tutorial -->
+    <div id="map" style="width: 100%;height: 400px;background-color: grey;"></div>
+
+    <br>
+    <h4>How to get here:</h4>
+    <div class="row">
+      <div class="col-lg-3">
+        <h5>BUS:</h5>
+        <p>520, 982</p>
+      </div>
+      <div class="col-lg-3">
+        <h5>MRT:</h5>
+        <p><b>捷運機場線</b>-新北產業園區站</p>
+      </div>
+    </div>
+    <br>
+    <h4>How to contact us:</h4>
+    <address>
+      <!--No.12, Ln. 78, Wugong 3rd Rd., Xinzhuang Dist., New Taipei City 242, Taiwan (R.O.C.)-->
+      <b>Address:</b>242台灣 新北市 新莊區 五工三路 78巷 12號<br>
+      <b>Phone:</b>+886 2 2298 8881<br>
+    </address>
+
+
+{% endblock %}

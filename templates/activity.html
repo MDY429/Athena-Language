@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Activity
+{% endblock %}
+
+{% block head %}
+<style>
+.card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+}
+</style>
+{% endblock %}
+
+{% block main %}
+
+
+<div class="card mb-3 " style="max-width: 40rem;">
+   <img  src="{{ url_for('static', filename='activity1.jpg') }}"  >
+  <div class="card-body">
+    <h4 class="card-title">2017 Halloween</h4>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small class="text-muted">2017-10-31</small></p>
+  </div>
+</div>
+{%endblock%}

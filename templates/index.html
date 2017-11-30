@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block head %}
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css"/>
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/themes/bootstrap.min.css"/>
+    <!-- Validator-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+
+    <style>
+        .alertify-notifier .ajs-message.ajs-error{
+            font-size:1rem;
+            font-weight:bold;
+        }
+        .alertify-notifier .ajs-message.ajs-success{
+            font-size:1rem;
+            font-weight:bold;
+        }
+
+        .help-block{
+          color:#dc3545;
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block main %}
+  <!-- Jumbotron -->
+  <div class="jumbotron">
+    <h1>Welcome to Athena Language School.</h1>
+    <p class="lead">Do you want to know what we are doing?  </p>
+    <p><a class="btn btn-lg btn-success" href="{{ url_for('activity') }}" role="button" data-target="#exampleModal">Know more!!!</a></p>
+  </div>
+
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-lg-4">
+      <h2>Suggestions</h2>
+      <p>Have any suggestions or something you want to know? Don't be shy. Just leave the message to let us know. And so appreciate to leave comment to us. </br></br></p>
+      <p><button type="button" class="btn btn-primary" onclick="clickfn()"data-toggle="modal" data-target="#exampleModal" >View details &raquo;</button></p>
+    </div>
+    <div class="col-lg-4">
+      <h2>Join Us!</h2>
+      <p>Hey! What are you waitting for? Just fill in the questionnaire. And we will contact you as soon as possible. We have many discount to you. </br></br></br></p>
+      <p><a class="btn btn-primary" href="{{ url_for('joinus') }}" role="button">View details &raquo;</a></p>
+    </div>
+    <div class="col-lg-4">
+      <h2>Recruiting Talents</h2>
+      <p>Do you want to join us? Please fill out the questionnaire. We will contact you as soon as possible. Or you can send the email to us.</br></br></br></p>
+      <p><a class="btn btn-primary" href="{{ url_for('hire') }}" role="button">View details &raquo;</a></p>
+    </div>
+  </div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><b>Message Board</b></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display: none;"></iframe>
+        <form id="register_form" method="post" target="hidden_iframe" action="http://docs.google.com/forms/d/e/1FAIpQLSc1YiB-V6Zx_2l3V7ghi8arpMFB3xxD2zRUjLM4TASLmZiRKw/formResponse">
+          <div class="form-group">
+            <label for="name" ><b>Name</b></label>
+            <input name="entry.245041696" type="text" class="form-control" id="name" >
+          </div>
+          <div class="form-group">
+            <label for="email" ><b>Email</b></label>
+            <input name="entry.1713368849" type="email" class="form-control" data-error="Please check email style." id="email" value="" required>
+            <div class="help-block with-errors"></div>
+          </div>
+          <div class="form-group">
+            <label for="message-text" ><b>Message</b></label>
+            <textarea name="entry.335843142" class="form-control" data-error="Please fill the message." id="message-text" required></textarea>
+            <div class="help-block with-errors"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Send message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+$('#register_form').validator().on('submit', function(e) {
+
+  if (e.isDefaultPrevented()) {
+    // validate fail, do not submit.
+    return;
+  }
+  else {
+    // validate pass. send the form.
+    alertify.success("Thanks for your message.");
+    $('#exampleModal').modal('hide');
+
+  }
+  //e.preventDefault(); // 防止原始 form 提交表单
+});
+
+
+function clickfn(){
+  $('#exampleModal').on('show.bs.modal', function (e) {
+
+    var modal = $(this);
+    modal.find('.modal-body input').val("");
+    modal.find('.modal-body textarea').val("");
+
+  });
+
+}
+
+</script>
+{% endblock %}

@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Join Us
+{% endblock %}
+
+{% block head %}
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css"/>
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/themes/bootstrap.min.css"/>
+
+    <script src="{{ url_for('static', filename='joinus.js') }}"></script>
+
+    <style>
+        .alertify-notifier .ajs-message.ajs-error{
+            font-size:1rem;
+            font-weight:bold;
+        }
+        .alertify-notifier .ajs-message.ajs-success{
+            font-size:1rem;
+            font-weight:bold;
+        }
+    </style>
+
+{% endblock %}
+
+{% block main %}
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display: none;"  onload="this.onload=function(){window.location='{{ url_for('index') }}'}"></iframe>
+<form name="EnrollForm"id="EnrollForm" onsubmit="return validateForm()" method="post" target="hidden_iframe" action="http://docs.google.com/forms/d/e/1FAIpQLSc0a6cb3EEBsL82yxdP1mOHk3BMEsmMZmZRBGJ-lDQkZukAvw/formResponse">
+
+    <div class="form-group">
+        <div class="form-row " >
+            <div class="col-sm-2">
+                <label for="name"><b>Student Name</b></label>
+                <input name="entry.718823155" type="text" class="form-control" id="name" placeholder="Student Name">
+            </div>
+
+            <div class="col-auto">
+                <label for="b_year"><b>Birthday</b></label>
+                <div class="input-group">
+                    <input name="entry.2128664025_year" type="number" class="form-control" min="1950" max="2100" placeholder="Year" id="b_year">
+                    <input name="entry.2128664025_month" type="number" class="form-control" min="1" max="12" placeholder="Mon">
+                    <input name="entry.2128664025_day" type="number" class="form-control" min="1" max="31" placeholder="Day">
+                </div>
+            </div>
+
+            <div class="col-auto">
+                <label for="gender"><b>Gender</b></label>
+                <select name="entry.345143203" class="form-control" id="gender">
+                    <option value="man" selected>Man</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-4">
+                <label for="school"><b>School</b></label>
+                <input name="entry.1413202787" type="text" class="form-control" id="school" placeholder="school Name" >
+            </div>
+            <div class="col-sm-2">
+                <label for="grade"><b>Grade</b></label>
+                <input name="entry.877185134" type="text" class="form-control" id="grade" placeholder="grade" >
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2">
+                <label for="guardian"><b>Guardian Name</b></label>
+                <input name="entry.2075336225" type="text" class="form-control" id="guardian" placeholder="Guardian Name" >
+            </div>
+            <div class="col-sm-4">
+                <label for="email"><b>Email</b></label>
+                <input name="entry.2073062441" type="email" class="form-control" id="email" placeholder="name@example.com">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-3">
+                <label for="phone"><b>Phone</b></label>
+                <input name="entry.402803862" type="text" class="form-control" id="phone" placeholder="0900 123 456" >
+            </div>
+            <div class="col-sm-3">
+                <label for="tel"><b>Tel</b></label>
+                <input name="entry.337328473" type="tel" class="form-control" id="tel" placeholder="22988881" >
+            </div>
+        </div>
+    </div>
+
+
+    <fieldset class="form-group">
+        <div class="form-row">
+            <div class="col-auto">
+                <label for="radio"><b>Where know about us</b></label>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input name="entry.1139611603" class="form-check-input" type="radio" id="newspaper" value="newspaper" checked>
+                        Newspaper
+                    </label>
+                    <label class="form-check-label">
+                        <input name="entry.1139611603" class="form-check-input-sm-2" type="radio" id="leaflet" value="leaflet">
+                        Leaflet
+                    </label>
+                    <label class="form-check-label">
+                        <input name="entry.1139611603" class="form-check-input-sm-2" type="radio" id="internet" value="internet">
+                        Internet
+                    </label>
+                    <label class="form-check-label">
+                        <input name="entry.1139611603" class="form-check-input-sm-2" type="radio" id="friends" value="friends">
+                        Friends
+                    </label>
+                    <label class="form-check-label">
+                        <input name="entry.1139611603" class="form-check-input-sm-2" type="radio" id="others" value="others">
+                        Others
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label for="check"><b>Want to know</b></label>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input name="entry.946213082" class="form-check-input" type="checkbox" value="price">
+                Price
+            </label>
+            <label class="form-check-label">
+                <input name="entry.946213082" class="form-check-input-sm-2" type="checkbox" value="teachers">
+                Teachers
+            </label>
+            <label class="form-check-label">
+                <input name="entry.946213082" class="form-check-input-sm-2" type="checkbox" value="environment">
+                Environment
+            </label>
+        </div>
+    </fieldset>
+
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-6">
+                <label for="comment"><b>Leave Comment</b></label>
+                <textarea name="entry.2138059337" class="form-control" id="comment" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-dark">Submit</button>
+
+</form>
+
+{%endblock%}

@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Environment
+{% endblock %}
+
+{% block head %}
+  <style>
+  /*
+  img.d-block.w-100 {
+    height:600px;
+  }
+  */
+  .card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+}
+  </style>
+{% endblock %}
+
+{% block main %}
+  <div id="carouselIndicators" class="carousel slide" data-ride="carousel" >
+    <ol class="carousel-indicators">
+      <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselIndicators" data-slide-to="2"></li>
+    </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-slide-number="0">
+      <img class="d-block w-100" src="{{ url_for('static', filename='cat1.jpg') }}" alt="First slide">
+    </div>
+    <div class="carousel-item" data-slide-number="1">
+      <img class="d-block w-100" src="{{ url_for('static', filename='cat2.jpg') }}" alt="Second slide">
+    </div>
+    <div class="carousel-item" data-slide-number="2">
+      <img class="d-block w-100" src="{{ url_for('static', filename='cat4.jpg') }}" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  </div>
+
+  </br>
+
+  <div class="col-sm-4" id="carousel-text"></div>
+  <div id="slide-content" style="display: none;">
+    <div id="slide-content-0">
+      <h2>Slider One</h2>
+      <p>Lorem Ipsum Dolor1</p>
+      <p class="sub-text">October 24 2012 - <a href="#">Read more</a></p>
+    </div>
+    <div id="slide-content-1">
+      <h2>Slider Two</h2>
+      <p>Lorem Ipsum Dolor2</p>
+      <p class="sub-text">October 24 2014 - <a href="#">Read more</a></p>
+    </div>
+    <div id="slide-content-2">
+      <h2>Slider Three</h2>
+      <p>Lorem Ipsum Dolor3</p>
+      <p class="sub-text">October 24 2014 - <a href="#">Read more</a></p>
+    </div>
+  </div>
+
+  <script>
+  $(function() {
+    $('#carouselIndicators').carousel({
+      interval: 4000
+    });
+
+    $('#carousel-text').html($('#slide-content-0').html());
+
+    // When the carousel slides, auto update the text
+    $('#carouselIndicators').on('slid.bs.carousel', function (e) {
+      var id = $('.carousel-item.active').data('slide-number');
+      $('#carousel-text').html($('#slide-content-'+id).html());
+    });
+
+  });
+  </script>
+
+{% endblock %}
