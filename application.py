@@ -37,7 +37,7 @@ def environment():
 
 @app.route("/contact")
 def contact():
-    return render_template("contact.html")
+    return render_template("contact.html", key=os.environ.get("API_KEY"))
 
 @app.route("/activity")
 def activity():
