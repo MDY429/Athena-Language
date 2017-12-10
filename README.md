@@ -1,2 +1,6 @@
 # Athena-Language
-Introduce Athena Language School
+
+This is also my CS50 final Project.
+I design the basic frame to introduce Athena Language School.
+
+[![Athena Language](https://imgur.com/cu5Df3y.png)](https://youtu.be/4c30WH4OIE8 "Athena Language - Click to Watch!")
